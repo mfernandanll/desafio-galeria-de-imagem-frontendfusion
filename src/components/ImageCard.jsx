@@ -1,10 +1,22 @@
 import { useNavigate } from "react-router-dom";
+import { useFavorites } from "../context/FavoritesContext";
+import { Heart } from "phosphor-react";
 
 export function ImageCard({ image }) {
   const navigate = useNavigate();
+  const { addFavorite, removeFavorite, isFavorite } = useFavorites();
+  const favorite = isFavorite(image.id);
 
   const handleNavigate = () => {
     navigate(`/details/${image.id}`);
+  };
+
+  const handleFavoriteClick = () => {
+    if (favorite) {
+      removeFavorite(image.id);
+    } else {
+      addFavorite(image);
+    }
   };
 
   return (
@@ -32,6 +44,13 @@ export function ImageCard({ image }) {
           Ver detalhes
         </a>
       </div>
+      <button
+        onClick={handleFavoriteClick}
+        className="mt-4 px-4 py-2 rounded text-white absolute top-0 right-0"
+        aria-label="Favoritar foto" alt="Favoritar foto"
+      >
+        <Heart size={22} weight={favorite ? "fill" : "regular"} className="text-red-700" />
+      </button>
     </div>
   );
 }
