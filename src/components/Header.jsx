@@ -1,6 +1,14 @@
 import { Heart, MagnifyingGlass } from "phosphor-react";
+import { useFilter } from "../context/FilterContext";
 
 export function Header() {
+  const { filter, applyFilter } = useFilter();
+
+  const handleFilterFavoritesImages = () => {
+    const newFilter = filter === 'favorites' ? 'all' : 'favorites';
+    applyFilter(newFilter);
+  };
+
   return (
     <header className="border border-b-gray-400">
       <div className="container mx-auto px-4 py-8 flex justify-between items-center gap-8">
@@ -34,6 +42,7 @@ export function Header() {
               <button 
                 className="flex items-center gap-1" 
                 aria-label="Veja suas imagens favoritadas"
+                onClick={handleFilterFavoritesImages}
               >
                 Favoritas 
                 <Heart size={20} weight="fill" className="text-red-700" />

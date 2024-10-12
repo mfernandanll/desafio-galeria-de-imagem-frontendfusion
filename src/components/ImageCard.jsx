@@ -24,7 +24,6 @@ export function ImageCard({ image }) {
       <img
         src={image.download_url}
         alt={`Imagem ${image.id}`}
-        loading="lazy"
         className="
                 object-cover w-full h-full rounded-lg 
                 transition-transform duration-400 
