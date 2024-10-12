@@ -1,4 +1,12 @@
+import { useNavigate } from "react-router-dom";
+
 export function ImageCard({ image }) {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate(`/details/${image.id}`);
+  };
+
   return (
     <div key={image.id} className="relative overflow-hidden group">
       <img
@@ -11,6 +19,7 @@ export function ImageCard({ image }) {
                 group-hover:scale-110 group-hover:grayscale aspect-square"
       />
       <div
+        onClick={handleNavigate}
         className="
                 absolute cursor-pointer inset-0 p-4 
                 bg-black text-white bg-opacity-50 

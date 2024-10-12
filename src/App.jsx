@@ -1,13 +1,16 @@
+import { BrowserRouter } from "react-router-dom";
 import { Header } from "./components/Header";
-import { ImageGallery } from "./components/ImageGallery";
+import { Router } from "./Router";
 
 export function App() {
   return (
-    <div className="bg-gray-100 text-gray-900 min-h-screen">
-      <Header />
-      <main className="min-h-screen py-4">
-        <ImageGallery />
-      </main>
-    </div>
+    <BrowserRouter>
+      <div className="bg-gray-100 text-gray-900 min-h-screen">
+        <Header />
+        <main className="py-4">
+          <Router/>
+        </main>
+      </div>
+    </BrowserRouter>
   );
 }
