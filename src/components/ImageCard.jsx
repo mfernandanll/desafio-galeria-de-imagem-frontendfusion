@@ -10,8 +10,8 @@ export function ImageCard({ image }) {
   return (
     <div key={image.id} className="relative overflow-hidden group">
       <img
-        src={image.src}
-        alt={image.alt}
+        src={image.download_url}
+        alt={`Imagem ${image.id}`}
         loading="lazy"
         className="
                 object-cover w-full h-full rounded-lg 
