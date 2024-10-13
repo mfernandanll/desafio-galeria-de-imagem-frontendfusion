@@ -2,12 +2,23 @@ import { Heart, MagnifyingGlass } from "phosphor-react";
 import { useFilter } from "../context/FilterContext";
 
 export function Header() {
-  const { filter, applyFilter } = useFilter();
+  const { filter, applyFilter, handleSearch } = useFilter();
 
   const handleFilterFavoritesImages = () => {
     const newFilter = filter === 'favorites' ? 'all' : 'favorites';
     applyFilter(newFilter);
   };
+
+  const handleSearchImages = (event) => {
+    event.preventDefault();
+    const query = event.target.elements.search.value.trim(); 
+
+    if (query) { 
+      handleSearch(query);
+    } else {
+      applyFilter('all');
+    }
+  }
 
   return (
     <header className="border border-b-gray-400">
@@ -18,7 +29,7 @@ export function Header() {
           </a>
         </div>
 
-        <form className="flex-grow" role="search" aria-label="Busque fotos e ilustrações">
+        <form className="flex-grow" role="search" aria-label="Busque fotos e ilustrações" onSubmit={handleSearchImages}>
           <label htmlFor="search" className="sr-only">Busque por fotos</label>
           <div className="relative">
             <input 
