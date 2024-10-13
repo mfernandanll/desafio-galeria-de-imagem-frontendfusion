@@ -22,9 +22,9 @@ export function Header() {
 
   return (
     <header className="border border-b-gray-400">
-      <div className="container mx-auto px-4 py-8 flex justify-between items-center gap-8">
+      <div className="container mx-auto px-4 py-8 flex justify-between items-center gap-8 max-sm:gap-4">
         <div>
-          <a href="/" aria-label="PicFinder logo, vá para a homepage" className="text-2xl font-bold">
+          <a href="/" aria-label="PicFinder logo, vá para a homepage" className="text-2xl font-bold max-sm:text-base">
             PicFinder
           </a>
         </div>
@@ -55,7 +55,7 @@ export function Header() {
                 aria-label="Veja suas imagens favoritadas"
                 onClick={handleFilterFavoritesImages}
               >
-                Favoritas 
+                <span className="max-sm:hidden">Favoritas</span>
                 <Heart size={20} weight="fill" className="text-red-700" />
               </button>
             </li>

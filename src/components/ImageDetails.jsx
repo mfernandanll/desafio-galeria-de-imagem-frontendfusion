@@ -10,7 +10,7 @@ export function ImageDetails() {
   return (
     <div className="container mx-auto p-4 ">
       {image ? (
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-2 gap-8 max-sm:grid-cols-1">
           <div>
             <img
               src={image.download_url}
