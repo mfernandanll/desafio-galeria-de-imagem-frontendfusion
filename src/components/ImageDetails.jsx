@@ -26,7 +26,7 @@ export function ImageDetails() {
             )}
             <img
               src={image.download_url}
-              alt={image.author}
+              alt={`Imagem de ${image.author}`}
               onLoad={handleImageLoad}
               loading="lazy"
               className="w-full h-full object-cover rounded-lg aspect-square"
@@ -38,7 +38,15 @@ export function ImageDetails() {
             <p className="pb-2">
               Dimensões: {image.width} x {image.height}
             </p>
-            <p className="pb-2">URL: <a href={image.url} className="underline text-blue-600 hover:text-blue-800">{image.url}</a></p>
+            <p className="pb-2">URL: &nbsp;
+              <a 
+                href={image.url} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="underline text-blue-600 hover:text-blue-800">
+                  {image.url}
+              </a>
+            </p>
           </div>
         </div>
       ) : (

@@ -14,11 +14,7 @@ export function ImageCard({ image }) {
   };
 
   const handleFavoriteClick = () => {
-    if (favorite) {
-      removeFavorite(image.id);
-    } else {
-      addFavorite(image);
-    }
+    favorite ? removeFavorite(image.id) : addFavorite(image);
   };
 
   const handleImageLoad = () => {
@@ -33,23 +29,15 @@ export function ImageCard({ image }) {
 
       <img
         src={image.download_url}
-        alt={`Imagem ${image.id}`}
+        alt={`Imagem de ${image.author}`}
         loading="lazy"
         onLoad={handleImageLoad}
-        className="
-      object-cover w-full h-full rounded-lg 
-      transition-transform duration-300 
-      group-hover:scale-110 group-hover:grayscale aspect-square"
+        className="object-cover w-full h-full rounded-lg aspect-square transition-transform duration-300 group-hover:scale-110 group-hover:grayscale"
       />
 
       <div
         onClick={handleNavigate}
-        className="
-      absolute cursor-pointer inset-0 p-4 
-      bg-black text-white bg-opacity-50 
-      flex flex-col items-center justify-center 
-      opacity-0 transition-opacity duration-300
-      group-hover:opacity-100"
+        className="absolute cursor-pointer inset-0 p-4 bg-black text-white bg-opacity-50 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
       >
         <p>{image.author}</p>
         <a href="#" className="underline mt-2">
@@ -59,10 +47,10 @@ export function ImageCard({ image }) {
 
       <button
         onClick={handleFavoriteClick}
-        className="
-      px-4 py-2 rounded text-white absolute top-4 right-4
-      bg-transparent hover:bg-opacity-70 transition duration-300"
-        aria-label="Favoritar foto"
+        className="px-4 py-2 rounded text-white absolute top-4 right-4 bg-transparent hover:bg-opacity-70 transition duration-300"
+        aria-label={
+          favorite ? "Remover dos favoritos" : "Adicionar aos favoritos"
+        }
       >
         <Heart
           size={22}
