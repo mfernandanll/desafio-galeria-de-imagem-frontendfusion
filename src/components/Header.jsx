@@ -27,14 +27,14 @@ export function Header() {
           PicFinder
         </a>
 
-        <form className="flex-grow" role="search" aria-label="Busque fotos e ilustrações" onSubmit={handleSearchImages}>
-          <label htmlFor="search" className="sr-only">Busque por fotos</label>
+        <form className="flex-grow" role="search" aria-label="Busque fotos por autor" onSubmit={handleSearchImages}>
+          <label htmlFor="search" className="sr-only">Busque fotos por autor</label>
           <div className="relative">
             <input 
               type="text" 
               id="search" 
               className="w-full rounded-lg py-2 pl-2 bg-gray-300 placeholder:text-gray-600" 
-              placeholder="Busque fotos e ilustrações" 
+              placeholder="Busque fotos por autor" 
             />
             
             <button 
@@ -51,6 +51,7 @@ export function Header() {
             <li>
               <button 
                 className="flex items-center gap-1" 
+                placeholder={filter === 'favorites' ? "Mostrar todas as imagens" : "Veja suas imagens favoritadas"}
                 aria-label={filter === 'favorites' ? "Mostrar todas as imagens" : "Veja suas imagens favoritadas"}
                 onClick={handleFilterFavoritesImages}
               >
