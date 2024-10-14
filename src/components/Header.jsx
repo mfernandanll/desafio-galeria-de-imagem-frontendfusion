@@ -1,23 +1,13 @@
-import { Heart, MagnifyingGlass } from "phosphor-react";
+import { Heart } from "phosphor-react";
 import { useFilter } from "../context/FilterContext";
+import { SearchBar } from "./SearchBar";
 
 export function Header() {
-  const { filter, applyFilter, handleSearch } = useFilter();
+  const { filter, applyFilter } = useFilter();
 
   const handleFilterFavoritesImages = () => {
     const newFilter = filter === 'favorites' ? 'all' : 'favorites';
     applyFilter(newFilter);
-  };
-
-  const handleSearchImages = (event) => {
-    event.preventDefault();
-    const query = event.target.elements.search.value.trim(); 
-
-    if (query) { 
-      handleSearch(query);
-    } else {
-      applyFilter('all');
-    }
   };
 
   return (
@@ -27,24 +17,7 @@ export function Header() {
           PicFinder
         </a>
 
-        <form className="flex-grow" role="search" aria-label="Busque fotos por autor" onSubmit={handleSearchImages}>
-          <label htmlFor="search" className="sr-only">Busque fotos por autor</label>
-          <div className="relative">
-            <input 
-              type="text" 
-              id="search" 
-              className="w-full rounded-lg py-2 pl-2 bg-gray-300 placeholder:text-gray-600" 
-              placeholder="Busque fotos por autor" 
-            />
-            
-            <button 
-              type="submit" 
-              className="absolute top-[0.625rem] right-2 text-gray-600" 
-              aria-label="Pesquisar">
-              <MagnifyingGlass size={20} />
-            </button>
-          </div>
-        </form>
+        <SearchBar />
 
         <nav aria-label="Navegação principal">
           <ul className="flex items-center gap-4">

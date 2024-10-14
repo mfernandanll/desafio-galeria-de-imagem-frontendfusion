@@ -1,7 +1,7 @@
 import { useFavorites } from "../context/FavoritesContext";
 import { useFilter } from "../context/FilterContext";
 import { useImages } from "../context/ImageContext";
-import { ImageCard } from "./ImageCard";
+import { ImageCard } from "./components/ImageCard";
 import { useEffect, useRef, useState } from "react";
 
 const IMAGES_PER_PAGE = 9;

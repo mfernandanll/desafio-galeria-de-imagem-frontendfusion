@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import { ImageGallery } from "./components/ImageGallery";
-import { ImageDetails } from "./components/ImageDetails";
+import { ImageGallery } from "./pages/ImageGallery";
+import { ImageDetails } from "./pages/ImageDetails";
 
 export function Router() {
   return (

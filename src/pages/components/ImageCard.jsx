@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useFavorites } from "../context/FavoritesContext";
+import { useFavorites } from "../../context/FavoritesContext";
 import { Heart } from "phosphor-react";
 import { useState } from "react";
 
