@@ -4,6 +4,7 @@ import { Router } from "./Router";
 import { ImagesProvider } from "./context/ImageContext";
 import { FavoritesProvider } from "./context/FavoritesContext";
 import { FilterProvider } from "./context/FilterContext";
+import { Footer } from "./components/Footer";
 
 export function App() {
   return (
@@ -16,6 +17,7 @@ export function App() {
               <main className="py-4">
                 <Router />
               </main>
+              <Footer />
             </div>
           </FilterProvider>
         </FavoritesProvider>
